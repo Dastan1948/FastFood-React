@@ -1,0 +1,351 @@
+{
+  "basket": [
+    {
+      "id": 11,
+      "img": "https://img.freepik.com/free-photo/grilled-cheeseburger-on-sesame-bun-with-fries-generated-by-ai_188544-23207.jpg?w=1060&t=st=1697035547~exp=1697036147~hmac=2e7b00d5970f0f987b070680b22b0515f677c90e1535502a98a63a83d9a4dc8d",
+      "price": 689,
+      "name": "Мясная бомба",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "star": 5
+    },
+    {
+      "id": 12,
+      "img": "https://img.freepik.com/premium-photo/delicious-grilled-burger-for-lunch_930122-66.jpg",
+      "price": 550,
+      "name": "Супер сырный",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "star": 4
+    },
+    {
+      "id": 1698064145327,
+      "img": "https://img.freepik.com/premium-photo/delicious-grilled-burger-for-lunch_930122-66.jpg",
+      "name": "Супер сырный",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "price": 550,
+      "star": 4
+    },
+    {
+      "id": 1698065502707,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
+      "name": "Маргарита",
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
+      "price": 450,
+      "star": 4
+    }
+  ],
+  "menu1": [
+    {
+      "id": 11,
+      "img": "https://img.freepik.com/free-photo/grilled-cheeseburger-on-sesame-bun-with-fries-generated-by-ai_188544-23207.jpg?w=1060&t=st=1697035547~exp=1697036147~hmac=2e7b00d5970f0f987b070680b22b0515f677c90e1535502a98a63a83d9a4dc8d",
+      "price": 689,
+      "name": "Мясная бомба",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "star": 5
+    },
+    {
+      "id": 12,
+      "img": "https://img.freepik.com/premium-photo/delicious-grilled-burger-for-lunch_930122-66.jpg",
+      "price": 550,
+      "name": "Супер сырный",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "star": 4
+    },
+    {
+      "id": 13,
+      "img": "https://img.freepik.com/free-photo/grilled-cheeseburger-on-sesame-bun-with-fries-generated-by-ai_188544-23207.jpg?w=1060&t=st=1697035547~exp=1697036147~hmac=2e7b00d5970f0f987b070680b22b0515f677c90e1535502a98a63a83d9a4dc8d",
+      "name": "Сытный",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "price": 639,
+      "star": 3
+    },
+    {
+      "id": 14,
+      "img": "https://img.freepik.com/free-photo/hamburger-with-french-fries-on-the-table_140725-4745.jpg?w=740&t=st=1697033778~exp=1697034378~hmac=06e9fb781d81f5304a31d15eba83338b6e8bbe63965bffe33d27f88073898e89",
+      "name": "Тяжелый удар",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "price": 480,
+      "star": 4
+    },
+    {
+      "id": 15,
+      "img": "https://img.freepik.com/premium-photo/cheeseburger-on-black-background_124507-6765.jpg?w=1060",
+      "name": "Вечная классика",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "price": 450,
+      "star": 5
+    },
+    {
+      "id": 16,
+      "img": "https://img.freepik.com/free-photo/big-sandwich-hamburger-burger-with-beef-red-onion-tomato-and-fried-bacon_2829-5398.jpg?w=740&t=st=1697033889~exp=1697034489~hmac=d7bee886707de284df812ed78b966f9c3adb2c8219d85c183e0974c22ebcd130",
+      "name": "Итальянский",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "price": 560,
+      "star": 4
+    },
+    {
+      "id": 17,
+      "img": "https://img.freepik.com/free-photo/big-sandwich-hamburger-burger-with-beef-red-onion-tomato-and-fried-bacon_2829-5398.jpg?w=740&t=st=1697033889~exp=1697034489~hmac=d7bee886707de284df812ed78b966f9c3adb2c8219d85c183e0974c22ebcd130",
+      "name": "Классическая",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "price": 560,
+      "star": 3
+    },
+    {
+      "id": 18,
+      "img": "https://img.freepik.com/free-photo/burger-hamburger-cheeseburger_505751-3690.jpg?w=740&t=st=1696959351~exp=1696959951~hmac=31a723160b24a1cbe24e3d801a079fc90f99cac44b3934e2d53275010571ab0a",
+      "name": "Вегетарианская",
+      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
+      "price": 760,
+      "star": 4
+    }
+  ],
+  "menu2": [
+    {
+      "id": 21,
+      "img": "https://img.freepik.com/free-photo/junk-food-tray-on-white-table_23-2148273124.jpg?w=996&t=st=1697036533~exp=1697037133~hmac=effb61d0a8b9abdfe7e007bc19966b1cec9a8fd40e94926b313fc8cb4e42dd7d",
+      "price": 1200,
+      "name": "Комбо обед №1",
+      "text": "Чизбургер, картофель фри, соус сырный, кола",
+      "star": 4
+    },
+    {
+      "id": 22,
+      "img": "https://img.freepik.com/free-photo/chicken-burger-with-french-fries-on-a-board-a-capital-salad-and-a-glass-of-yogurt_141793-4369.jpg?w=996&t=st=1697036654~exp=1697037254~hmac=f6fac4d467e422377cb077363304649c41acdffa39976ab641e79eb3b697f403",
+      "price": 1000,
+      "name": "Комбо обед №2",
+      "text": "Чизбургер, картофель фри, соус сырный, кола",
+      "star": 5
+    },
+    {
+      "id": 23,
+      "img": "https://img.freepik.com/free-photo/meat-burger-with-fries-and-a-glass-of-ayran_140725-6711.jpg?w=826&t=st=1697036701~exp=1697037301~hmac=199ee60bb41418868bfc2adb6c0c7237bad01cfc1bbebb9442f06b1ffc561708",
+      "name": "Комбо обед №3",
+      "text": "Чизбургер, картофель фри, соус сырный, кола",
+      "price": 1050,
+      "star": 3
+    },
+    {
+      "id": 24,
+      "img": "https://img.freepik.com/free-photo/close-up-on-delicious-fast-food-meal_23-2149291677.jpg?w=996&t=st=1697036781~exp=1697037381~hmac=0d4c8fb0f95971e801701679592e92b2b4b0a37ee6390a055884035c1f773b32",
+      "name": "Комбо обед №4",
+      "text": "Чизбургер, картофель фри, соус сырный, кола",
+      "price": 780,
+      "star": 4
+    },
+    {
+      "id": 25,
+      "img": "https://img.freepik.com/free-photo/grilled-beef-burger-with-fries-cheese-and-tomato-generative-ai_188544-8466.jpg?w=1060&t=st=1697036845~exp=1697037445~hmac=a49217f675346ecfe4a928fd3cd529ee46a3ecb620006ed551d6fb139bdd0734",
+      "name": "Комбо обед №5",
+      "text": "Чизбургер, картофель фри, соус сырный, кола",
+      "price": 700,
+      "star": 4
+    }
+  ],
+  "menu3": [
+    {
+      "id": 31,
+      "img": "http://localhost:5173/src/assets/img/gallary_2.jpg",
+      "name": "Десерт №1",
+      "text": "Сливочно-творожный мусс на подушке из шоколадного бисквита с прослойкой вишневого компоте.",
+      "price": 700,
+      "star": 4
+    },
+    {
+      "id": 32,
+      "img": "http://localhost:5173/src/assets/img/gallary_1.jpg",
+      "name": "Десерт №2",
+      "text": "Сливочно-творожный мусс на подушке из шоколадного бисквита с прослойкой вишневого компоте.",
+      "price": 700,
+      "star": 4
+    },
+    {
+      "id": 33,
+      "img": "http://localhost:5173/src/assets/img/gallary_3.jpg",
+      "name": "Десерт №3",
+      "text": "Сливочно-творожный мусс на подушке из шоколадного бисквита с прослойкой вишневого компоте.",
+      "price": 700,
+      "star": 4
+    },
+    {
+      "id": 34,
+      "img": "http://localhost:5173/src/assets/img/ice_cream.jpg",
+      "name": "Десерт №4",
+      "text": "Сливочно-творожный мусс на подушке из шоколадного бисквита с прослойкой вишневого компоте.",
+      "price": 700,
+      "star": 4
+    },
+    {
+      "id": 35,
+      "img": "http://localhost:5173/src/assets/img/gallary_4.jpg",
+      "name": "Десерт №5",
+      "text": "Сливочно-творожный мусс на подушке из шоколадного бисквита с прослойкой вишневого компоте.",
+      "price": 700,
+      "star": 4
+    },
+    {
+      "id": 36,
+      "img": "http://localhost:5173/src/assets/img/gallary_5.jpg",
+      "name": "Десерт №6",
+      "text": "Сливочно-творожный мусс на подушке из шоколадного бисквита с прослойкой вишневого компоте.",
+      "price": 700,
+      "star": 4
+    },
+    {
+      "id": 37,
+      "img": "http://localhost:5173/src/assets/img/gallary_6.jpg",
+      "name": "Десерт №7",
+      "text": "Сливочно-творожный мусс на подушке из шоколадного бисквита с прослойкой вишневого компоте.",
+      "price": 700,
+      "star": 4
+    }
+  ],
+  "menu4": [
+    {
+      "id": 41,
+      "img": "https://img.freepik.com/free-photo/side-view-chicken-roll-grilled-chicken-lettuce-cucumber-tomato-and-mayo-in-pita_141793-4849.jpg?w=996&t=st=1698003067~exp=1698003667~hmac=9f05a90d0e6440be1444a333e70d1ea3627c220b6bac7afa2d55f5ae142bbe62",
+      "name": "Шаурма №1",
+      "text": "котлета из мраморной говядины, сыр Гауда, соус фирменный, салат коул слоу, огурцы маринованные, тортилья пшеничная, помидор, кинза",
+      "price": 300,
+      "star": 5
+    },
+    {
+      "id": 42,
+      "img": "https://img.freepik.com/premium-photo/shawarma-with-grilled-beef-and-vegetables_135427-6444.jpg?w=996",
+      "name": "Шаурма №2",
+      "text": "котлета из мраморной говядины, сыр Гауда, соус фирменный, салат коул слоу, огурцы маринованные, тортилья пшеничная, помидор, кинза",
+      "price": 200,
+      "star": 4
+    },
+    {
+      "id": 43,
+      "img": "https://img.freepik.com/free-photo/front-view-sliced-delicious-shaurma-with-mayyonaise-salad-on-grey-surface-salad-burger-sandwich-meal-food-snack_140725-101523.jpg?w=996&t=st=1698003276~exp=1698003876~hmac=d616c8aab8e2d131d630766809da105fdd2c0e8bbf915c2040e06766781544d1",
+      "name": "Шаурма №3",
+      "text": "котлета из мраморной говядины, сыр Гауда, соус фирменный, салат коул слоу, огурцы маринованные, тортилья пшеничная, помидор, кинза",
+      "price": 400,
+      "star": 5
+    },
+    {
+      "id": 44,
+      "img": "https://img.freepik.com/free-photo/a-burrito-with-meat-and-vegetables-on-it_188544-16138.jpg?w=1060&t=st=1698003310~exp=1698003910~hmac=9488790f40d58c1e606072543a9dbb01d9ee5bb65305f341bf95e969dcae3850",
+      "name": "Шаурма №4",
+      "text": "котлета из мраморной говядины, сыр Гауда, соус фирменный, салат коул слоу, огурцы маринованные, тортилья пшеничная, помидор, кинза",
+      "price": 350,
+      "star": 4
+    },
+    {
+      "id": 45,
+      "img": "https://img.freepik.com/free-photo/grilled-beef-burrito-with-fresh-guacamole-and-salsa-generated-by-ai_188544-17894.jpg?w=1060&t=st=1698003331~exp=1698003931~hmac=b4f5f21d6ab8741eade0653eb155c34d879352d70c0ecac499d275cf00cf3359",
+      "name": "Шаурма №5",
+      "text": "котлета из мраморной говядины, сыр Гауда, соус фирменный, салат коул слоу, огурцы маринованные, тортилья пшеничная, помидор, кинза",
+      "price": 500,
+      "star": 5
+    }
+  ],
+  "menu5": [
+    {
+      "id": 51,
+      "img": "https://img.freepik.com/free-photo/hot-dog-with-mustard-on-it-side-view_140725-11271.jpg?w=740&t=st=1698004200~exp=1698004800~hmac=1d461dac31990be397b4f483613f6f67e4d7319b914e693cff8f1f7c19949603",
+      "text": "булочка, сосиска, кетчуп, горчица",
+      "name": "Хот-Дог №1",
+      "price": 300,
+      "star": 5
+    },
+    {
+      "id": 52,
+      "img": "https://img.freepik.com/free-photo/hot-dog_144627-19563.jpg?w=360&t=st=1698004257~exp=1698004857~hmac=580e98690b28b08d096655891231a47344fe997371e60e11dd47793492792b5f",
+      "text": "булочка, сосиска, кетчуп, горчица",
+      "name": "Хот-Дог №2",
+      "price": 100,
+      "star": 53
+    },
+    {
+      "id": 53,
+      "img": "https://img.freepik.com/premium-photo/hot-dog-with-yellow-mustard-and-ketchup-on-wooden-board_93675-89324.jpg?w=996",
+      "text": "булочка, сосиска, лук фри, маринованный огурец, кетчуп, горчица",
+      "name": "Хот-Дог №3",
+      "price": 200,
+      "star": 4
+    },
+    {
+      "id": 54,
+      "img": "https://img.freepik.com/free-photo/hot-dog-with-mustard-on-it-side-view_140725-11271.jpg?w=740&t=st=1698004200~exp=1698004800~hmac=1d461dac31990be397b4f483613f6f67e4d7319b914e693cff8f1f7c19949603",
+      "text": "булочка, сосиска, кетчуп, горчица",
+      "name": "Хот-Дог №4",
+      "price": 300,
+      "star": 5
+    },
+    {
+      "id": 55,
+      "img": "https://img.freepik.com/free-photo/hot-dog-with-mustard-on-it-side-view_140725-11271.jpg?w=740&t=st=1698004200~exp=1698004800~hmac=1d461dac31990be397b4f483613f6f67e4d7319b914e693cff8f1f7c19949603",
+      "text": "булочка, сосиска, кетчуп, горчица",
+      "name": "Хот-Дог №5",
+      "price": 200,
+      "star": 4
+    }
+  ],
+  "menu6": [
+    {
+      "id": 61,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/2ffc31bb-132c-4c99-b894-53f7107a1441.jpg",
+      "name": "Сырная",
+      "price": 245,
+      "star": 4,
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро."
+    },
+    {
+      "id": 62,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg",
+      "name": "Цыпленок барбекю",
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
+      "price": 295,
+      "star": 1
+    },
+    {
+      "id": 63,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/af553bf5-3887-4501-b88e-8f0f55229429.jpg",
+      "name": "Кисло-сладкий цыпленок",
+      "price": 275,
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
+      "star": 2
+    },
+    {
+      "id": 64,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg",
+      "name": "Чизбургер-пицца",
+      "price": 415,
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
+      "star": 3
+    },
+    {
+      "id": 65,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg",
+      "name": "Крэйзи пепперони",
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
+      "star": 2
+    },
+    {
+      "id": 66,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d2e337e9-e07a-4199-9cc1-501cc44cb8f8.jpg",
+      "name": "Пепперони",
+      "price": 675,
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
+      "star": 1
+    },
+    {
+      "id": 67,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
+      "name": "Маргарита",
+      "price": 450,
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
+      "star": 4
+    },
+    {
+      "id": 68,
+      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/ec29465e-606b-4a04-a03e-da3940d37e0e.jpg",
+      "name": "Четыре сезона",
+      "price": 395,
+      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
+      "star": 5
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+.box {
+  position: relative;
+	input {
+    border: 1px solid black;
+    border-radius: 10px;
+		width: 300px;
+		padding: 5px;
+	}
+
+  i {
+    position: absolute;
+    top: 7px;
+    right: 12px;
+  }
+}
