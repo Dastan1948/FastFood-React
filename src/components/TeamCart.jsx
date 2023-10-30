@@ -7,7 +7,7 @@ const TeamCart = ({img}) => {
 					<div className='info'>
 						<h2 className='name'>Chef</h2>
 						<p className='bio'>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit.
+						Никто не вправе осуждать треск разлетающихся скреп
 						</p>
 						<div className='team_icon'>
 							<i className='fa-brands fa-facebook-f' />

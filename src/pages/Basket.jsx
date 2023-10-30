@@ -1,43 +1,52 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 
-import axios from 'axios'
+import { useDispatch, useSelector } from 'react-redux'
+import BasketEmpty from '../components/BasketEmpty'
 import OrderCart from '../components/OrderCart'
-import { BasketAPI } from '../consts/API'
+import { searchContext } from '../context/SearchContextProvider'
+import { clearItems } from '../store/slices/cartSlice'
 
 const Basket = () => {
-	const [data, setData] = useState([])
+	const { items, totalPrice } = useSelector(state => state.cart)
+	const dispatch = useDispatch()
 
-	useEffect(() => {
-		axios
-			.get(BasketAPI)
-			.then(res => {
-				setData(res.data)
-			})
-			.catch(err => console.log(err))
-	}, [])
-	
+	const { searchValue } = useContext(searchContext)
 
-	const handleDelete = (id) => {
-    axios.delete(`${BasketAPI}/${id}`)
+	const handleClearItems = () => {
+		if (window.confirm('Вы правда хотите очистить корзину?')) {
+			dispatch(clearItems())
+		}
+	}
 
-		location.reload()
-  }
-	
+	if (items.length === 0) {
+		return <BasketEmpty />
+	}
 
 	return (
 		<div className='menu'>
 			<h1>
 				<span>Корзина</span>
 			</h1>
+			<button className='menu_clear-btn' onClick={handleClearItems}>
+				Очистить корзину
+			</button>
 			<div className='menu_box'>
-				{data.map(el => (
-					<OrderCart key={el.id} food={el} handleDelete={handleDelete} />
-				))}
+				{items
+					.filter(value => {
+						if (value.name.toLowerCase().includes(searchValue.toLowerCase())) {
+							return true
+						}
+						return false
+					})
+					.map(el => (
+						<OrderCart key={el.id} food={el} />
+					))}
 			</div>
 			<div className='order_delivery'>
-				<button>
-					Order
-				</button>
+				<div className='order_delivery-total'>
+					Итого: <span>{totalPrice} сомов</span>
+				</div>
+				<button onClick={e => alert('Пока что не готово')}>Order</button>
 			</div>
 		</div>
 	)

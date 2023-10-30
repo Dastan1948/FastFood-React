@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import logo from '../../assets/img/logo.png'
 import { searchContext } from '../../context/SearchContextProvider'
 import SearchBar from '../SearchBar'
+import { useSelector } from 'react-redux'
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false)
@@ -13,6 +14,9 @@ const Navbar = () => {
 		setIsOpen(!isOpen)
 		setSearchValue('')
 	}
+
+	const {items} = useSelector(state => state.cart)
+	const totalCount = items.reduce((sum, item) => sum + item.count, 0)
 
 	return (
 		<section id='Home'>
@@ -52,7 +56,10 @@ const Navbar = () => {
 						/>
 					)}
 					<Link to='/basket'>
+					<div className='basket_icons'>
 						<i className='fa-solid fa-cart-shopping' />
+						<span>{totalCount}</span>
+					</div>
 					</Link>
 				</div>
 			</nav>

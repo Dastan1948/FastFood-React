@@ -1,28 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BasketAPI } from '../consts/API'
 import { Link } from 'react-router-dom'
+import { addItem } from '../store/slices/cartSlice'
+import { useDispatch } from 'react-redux'
+import ModalAdd from './ModalAdd'
 
-const MenuCart = ({ food, handleAddBasket }) => {
+const MenuCart = ({ food }) => {
+	const [isOpen, setIsOpen] = useState(false)
+
+	const dispatch = useDispatch()
 
 	const addBasket = (e) => {
 
 		let obj = {
-			id: Date.now(),
+			id: food.id,
 			img: food.img,
 			name: food.name,
 			text: food.text,
 			price: food.price,
-			star: food.star
+			star: food.star,
+			count: 1
 		}
 
-		handleAddBasket(BasketAPI, obj)
+		dispatch(addItem(obj))
+		setIsOpen(true)
 
-		alert('Успешно Добавлено в Корзину')
+		// handleAddBasket(BasketAPI, obj)
+	}
+
+	if(isOpen) {
+		setTimeout(() => {
+			setIsOpen(false)
+			console.log(1231);
+		}, 500)
 	}
 
 
 	return (
 		<div className='menu_card'>
+		{isOpen && <ModalAdd title='Товар успешно добавлен' />}
 			<div className='menu_image'>
 				<img src={food.img} />
 			</div>

@@ -9,28 +9,28 @@ const reviewList = [
     name: 'Anna',
     img: review1,
     starCount: 3,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Obcaecati, ipsam ipsa. Doloribus iure molestiae debitis eos suscipit culpa natus, quas quidem laboriosam odio, labore cupiditate autem ipsum id tenetur nisi."
+    text: "Картельные сговоры не допускают ситуации, при которой некоторые особенности внутренней политики, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут описаны максимально подробно."
   },
   {
     id: 2,
     name: 'Dastan',
     img: review2,
     starCount: 4,
-    text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Obcaecati pariatur possimus officia commodi inventore at, asperiores ab nihil tempora, voluptates itaque tenetur, sed ad ducimus maxime nemo expedita facilis quaerat!"
+    text: "Картельные сговоры не допускают ситуации, при которой некоторые особенности внутренней политики, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут описаны максимально подробно."
   },
   {
     id: 3,
     name: 'Kristina',
     img: review3,
     starCount: 4,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum perferendis obcaecati minima voluptatem cupiditate nostrum nihil soluta omnis dignissimos et similique, eius alias aspernatur provident."
+    text: "Картельные сговоры не допускают ситуации, при которой некоторые особенности внутренней политики, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут описаны максимально подробно."
   },
   {
     id: 4,
     name: 'Maksat',
     img: review4,
     starCount: 5,
-    text: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni quidem aspernatur dolores nostrum neque ea illo libero quos, itaque voluptatum ullam provident facere quae vero sit corporis cum eum accusamus et laudantium quam nemo ipsam. Asperiores eos ducimus itaque enim."
+    text: "Картельные сговоры не допускают ситуации, при которой некоторые особенности внутренней политики, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут описаны максимально подробно."
   },
 ]
 

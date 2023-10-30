@@ -4,8 +4,11 @@ import { MenuAPI } from '../../consts/API'
 import { searchContext } from '../../context/SearchContextProvider'
 import Categories from '../Categories'
 import MenuCart from '../MenuCart'
+import { useDispatch } from 'react-redux'
+import {addItem} from '../../store/slices/cartSlice.js'
 
 const Menu = () => {
+
 	const [data, setData] = useState([])
 	const [select, setSelect] = useState(1)
 
@@ -23,10 +26,6 @@ const Menu = () => {
 		window.scrollTo(0, 0)
 	}, [select])
 
-	const handleAddBasket = (api, body) => {
-		axios.post(api, body)
-	}
-
 	return (
 		<div className='menu' id='Menu'>
 			<h1>
@@ -42,7 +41,7 @@ const Menu = () => {
 						return false
 					})
 					.map(el => (
-						<MenuCart key={el.id} food={el} handleAddBasket={handleAddBasket} />
+						<MenuCart key={el.id} food={el} />
 					))}
 			</div>
 		</div>

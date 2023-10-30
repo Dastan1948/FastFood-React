@@ -11,9 +11,12 @@ const About = () => {
 				<div className='main'>
 					<div className='men_text'>
 						<h1>
-							Получить свежую<span>Еду</span>
+							Получить свежую
 							<br />
-							простым способом
+							<span>Еду </span>
+							простым
+							<br />
+							 способом
 						</h1>
 					</div>
 					<div className='main_image'>
@@ -21,16 +24,18 @@ const About = () => {
 					</div>
 				</div>
 				<p>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Esse
-					reiciendis quaerat nobis deleniti amet non inventore. Reprehenderit
-					recusandae voluptatibus minus tenetur itaque numquam cum quos dolorem
-					maxime. Quas, quaerat nisi. Lorem ipsum dolor sit, amet consectetur
-					adipisicing elit. Cumque facilis, quaerat cupiditate nulla quibusdam
-					quo sunt esse tempore inventore vel voluptate, amet laudantium
-					adipisci veniam nihil quam molestiae omnis mollitia.
+					Прежде всего, понимание сути ресурсосберегающих технологий
+					предопределяет высокую востребованность вывода текущих активов.
+					Значимость этих проблем настолько очевидна, что курс на
+					социально-ориентированный национальный проект выявляет срочную
+					потребность прогресса профессионального сообщества. Как уже
+					неоднократно упомянуто, акционеры крупнейших компаний, которые
+					представляют собой яркий пример континентально-европейского типа
+					политической культуры, будут подвергнуты целой серии независимых
+					исследований.
 				</p>
 				<div className='main_btn'>
-					<Link to='/order'>Заказать сейчас</Link>
+					<Link to='/order'>Заказать</Link>
 					<i className='fa-solid fa-angle-right' />
 				</div>
 			</section>

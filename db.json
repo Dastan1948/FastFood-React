@@ -1,38 +1,5 @@
 {
-  "basket": [
-    {
-      "id": 11,
-      "img": "https://img.freepik.com/free-photo/grilled-cheeseburger-on-sesame-bun-with-fries-generated-by-ai_188544-23207.jpg?w=1060&t=st=1697035547~exp=1697036147~hmac=2e7b00d5970f0f987b070680b22b0515f677c90e1535502a98a63a83d9a4dc8d",
-      "price": 689,
-      "name": "Мясная бомба",
-      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
-      "star": 5
-    },
-    {
-      "id": 12,
-      "img": "https://img.freepik.com/premium-photo/delicious-grilled-burger-for-lunch_930122-66.jpg",
-      "price": 550,
-      "name": "Супер сырный",
-      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
-      "star": 4
-    },
-    {
-      "id": 1698064145327,
-      "img": "https://img.freepik.com/premium-photo/delicious-grilled-burger-for-lunch_930122-66.jpg",
-      "name": "Супер сырный",
-      "text": "котлета из мраморной говядины, бекон, сыр Гауда, салат коул слоу, вишневый соус, фирменный соус Джек Дэниел’с",
-      "price": 550,
-      "star": 4
-    },
-    {
-      "id": 1698065502707,
-      "img": "https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d48003cd-902c-420d-9f28-92d9dc5f73b4.jpg",
-      "name": "Маргарита",
-      "text": "Томаты, моцарелла, орегано, базилик, соус помодоро.",
-      "price": 450,
-      "star": 4
-    }
-  ],
+  
   "menu1": [
     {
       "id": 11,
