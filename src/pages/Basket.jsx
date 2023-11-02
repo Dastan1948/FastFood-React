@@ -5,10 +5,22 @@ import BasketEmpty from '../components/BasketEmpty'
 import OrderCart from '../components/OrderCart'
 import { searchContext } from '../context/SearchContextProvider'
 import { clearItems } from '../store/slices/cartSlice'
+import { useAuth } from '../context/AuthContextProvider'
 
 const Basket = () => {
 	const { items, totalPrice } = useSelector(state => state.cart)
 	const dispatch = useDispatch()
+
+	const {success} = useAuth()
+
+	// ЗАПРОС
+	// useEffect(() => {
+	// 	axios.get(BasketAPI)
+	// 		.then(res => {
+	// 			dispatch(updateItem(res.data))
+	// 		})
+	// 		.catch(err => console.log(err))
+	// }, [])
 
 	const { searchValue } = useContext(searchContext)
 
@@ -16,6 +28,13 @@ const Basket = () => {
 		if (window.confirm('Вы правда хотите очистить корзину?')) {
 			dispatch(clearItems())
 		}
+	}
+
+	const handleDelivery = () => {
+		if(!success) {
+			return alert('Нужно авторизоваться')
+		}
+		return alert('Доставка еще не готова')
 	}
 
 	if (items.length === 0) {
@@ -46,7 +65,7 @@ const Basket = () => {
 				<div className='order_delivery-total'>
 					Итого: <span>{totalPrice} сомов</span>
 				</div>
-				<button onClick={e => alert('Пока что не готово')}>Order</button>
+				<button onClick={handleDelivery}>Order</button>
 			</div>
 		</div>
 	)

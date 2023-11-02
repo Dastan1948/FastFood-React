@@ -4,13 +4,14 @@ import { Link } from 'react-router-dom'
 import { addItem } from '../store/slices/cartSlice'
 import { useDispatch } from 'react-redux'
 import ModalAdd from './ModalAdd'
+import axios from 'axios'
 
 const MenuCart = ({ food }) => {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const dispatch = useDispatch()
 
-	const addBasket = (e) => {
+	const addBasket = () => {
 
 		let obj = {
 			id: food.id,
@@ -23,15 +24,18 @@ const MenuCart = ({ food }) => {
 		}
 
 		dispatch(addItem(obj))
+
+		// зАПРОС
+		// axios.post(BasketAPI, obj)
+
 		setIsOpen(true)
 
-		// handleAddBasket(BasketAPI, obj)
 	}
 
 	if(isOpen) {
 		setTimeout(() => {
 			setIsOpen(false)
-			console.log(1231);
+			console.log('Modal closed after 500 ms');
 		}, 500)
 	}
 

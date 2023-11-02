@@ -1,21 +1,34 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import logo from '../../assets/img/logo.png'
 import { searchContext } from '../../context/SearchContextProvider'
 import SearchBar from '../SearchBar'
-import { useSelector } from 'react-redux'
+import { useAuth } from '../../context/AuthContextProvider'
 
 const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const { setSearchValue } = useContext(searchContext)
 
+	const {successAuth, success, logOut} = useAuth()
+
 	const handleOpenSearch = e => {
 		setIsOpen(!isOpen)
 		setSearchValue('')
 	}
 
-	const {items} = useSelector(state => state.cart)
+	const handleSignOut = async () => {
+		try {
+      await logOut()
+			successAuth(false)
+    } catch (error) {
+      alert(error.message);
+    }
+	}
+
+
+	const { items } = useSelector(state => state.cart)
 	const totalCount = items.reduce((sum, item) => sum + item.count, 0)
 
 	return (
@@ -56,11 +69,15 @@ const Navbar = () => {
 						/>
 					)}
 					<Link to='/basket'>
-					<div className='basket_icons'>
-						<i className='fa-solid fa-cart-shopping' />
-						<span>{totalCount}</span>
-					</div>
+						<div className='basket_icons'>
+							<i className='fa-solid fa-cart-shopping' />
+							<span>{totalCount}</span>
+						</div>
 					</Link>
+					<Link to='/signIn'>
+						<i className={`fa-solid fa-user ${success ? 'success' : ''}`}></i>
+					</Link>
+					{success && <button onClick={() => handleSignOut()}>Sign Out</button>}
 				</div>
 			</nav>
 		</section>

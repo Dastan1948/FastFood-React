@@ -8,7 +8,17 @@ const OrderCart = ({ food }) => {
 	const handleDelete = e => {
 		if (window.confirm('Вы правда хотите удалить товар?')) {
 			dispatch(removeItem(food.id))
+			// Запрос
+			// axios.delete(`${BasketAPI}/${food.id}`)
 		}
+	}
+
+	const handleMinus = async () => {
+		dispatch(minusCount(food.id))
+	}
+
+	const handlePlus = () => {
+		dispatch(addItem({ id: food.id }))
 	}
 
 	return (
@@ -17,7 +27,11 @@ const OrderCart = ({ food }) => {
 				<img src={food.img} />
 			</div>
 			<div className='small_card'>
-				<i className='fa-solid fa-xmark' onClick={handleDelete} />
+				<i
+					className='fa-solid fa-xmark'
+					style={{ color: 'white' }}
+					onClick={handleDelete}
+				/>
 			</div>
 			<div className='menu_info'>
 				<h2>{food.name}</h2>
@@ -39,15 +53,12 @@ const OrderCart = ({ food }) => {
 					<button
 						disabled={food.count > 0 ? false : true}
 						className='menu_btn-minus'
-						onClick={() => dispatch(minusCount(food.id))}
+						onClick={handleMinus}
 					>
 						-
 					</button>
 					<i>{food.count > 0 ? food.count : 0}</i>
-					<button
-						className='menu_btn-plus'
-						onClick={() => dispatch(addItem({ id: food.id }))}
-					>
+					<button className='menu_btn-plus' onClick={handlePlus}>
 						+
 					</button>
 				</div>
