@@ -1,28 +1,18 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 import BasketEmpty from '../components/BasketEmpty'
 import OrderCart from '../components/OrderCart'
-import { searchContext } from '../context/SearchContextProvider'
-import { clearItems } from '../store/slices/cartSlice'
 import { useAuth } from '../context/AuthContextProvider'
+import { clearItems } from '../store/slices/cartSlice'
 
 const Basket = () => {
 	const { items, totalPrice } = useSelector(state => state.cart)
 	const dispatch = useDispatch()
 
-	const {success} = useAuth()
+	const { success } = useAuth()
 
-	// ЗАПРОС
-	// useEffect(() => {
-	// 	axios.get(BasketAPI)
-	// 		.then(res => {
-	// 			dispatch(updateItem(res.data))
-	// 		})
-	// 		.catch(err => console.log(err))
-	// }, [])
-
-	const { searchValue } = useContext(searchContext)
+	const {searchValue} = useSelector(state => state.cart)
 
 	const handleClearItems = () => {
 		if (window.confirm('Вы правда хотите очистить корзину?')) {
@@ -31,7 +21,7 @@ const Basket = () => {
 	}
 
 	const handleDelivery = () => {
-		if(!success) {
+		if (!success) {
 			return alert('Нужно авторизоваться')
 		}
 		return alert('Доставка еще не готова')

@@ -1,18 +1,20 @@
 import React, { useState } from 'react'
 
-import '../styles/Auth.scss'
+// import 'bootstrap/dist/css/bootstrap.min.css'
 
+import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
 import GoogleButton from 'react-google-button'
 import { Link, useNavigate } from 'react-router-dom'
-import bg1 from '../assets/auth-img/bg-01.jpg'
 import { useAuth } from '../context/AuthContextProvider'
+
+import '../styles/SignIn.scss'
 
 const SignIn = () => {
 	const [email, setEmail] = useState('')
 	const [password, setPassword] = useState('')
 	const [error, setError] = useState('')
 
-	const { googleSignIn, signIn, successAuth } = useAuth()
+	const { googleSignIn, signIn, successAuth, saveLocalStorage } = useAuth()
 
 	const navigate = useNavigate()
 
@@ -22,6 +24,7 @@ const SignIn = () => {
 		try {
 			await signIn(email, password)
 			successAuth(true)
+			saveLocalStorage()
 			navigate('/')
 		} catch (error) {
 			setError(error.message)
@@ -33,6 +36,7 @@ const SignIn = () => {
 		try {
 			await googleSignIn()
 			successAuth(true)
+			saveLocalStorage()
 			navigate('/')
 		} catch (error) {
 			setError(error.message)
@@ -40,66 +44,61 @@ const SignIn = () => {
 	}
 
 	return (
-		<div className='limiter'>
-			<div
-				className='container-login100'
-				style={{ backgroundImage: `url(${bg1})` }}
-			>
-				<div className='wrap-login100 p-l-110 p-r-110 p-t-62 p-b-33'>
-					<form
-						className='login100-form validate-form flex-sb flex-w'
-						onSubmit={handleSubmit}
-					>
-						<span className='login100-form-title p-b-53'>Sign In With</span>
-						<div className='special'>
-							<GoogleButton onClick={handleGoogleSignIn} />
-							{error && (
-								<span className='login100-form-title p-b-10 p-t-40'>{error}</span>
-							)}
-							<div className='p-t-31 p-b-9'>
-								<span className='txt1'>Email</span>
+		<>
+			<Container style={{ maxWidth: 555, padding: '33.5px 0', margin: '0 auto' }}>
+				<Row>
+					<Col>
+						<div className='p-4 box'>
+							<h2 className='mb-3 text-center' style={{ fontSize: 36 }}>
+								Sign In
+							</h2>
+							{error && <Alert variant='danger' style={{marginBottom: 10}}>{error}</Alert>}
+							<Form onSubmit={handleSubmit}>
+								<Form.Group className='mb-3' controlId='formBasicEmail'>
+									<Form.Control
+										type='email'
+										style={{width: 350}}
+										placeholder='Email address'
+										value={email}
+										onChange={e => setEmail(e.target.value)}
+									/>
+								</Form.Group>
+
+								<Form.Group className='mb-3' controlId='formBasicPassword'>
+									<Form.Control
+										type='password'
+										style={{width: 350}}
+										placeholder='Password'
+										value={password}
+										onChange={e => setPassword(e.target.value)}
+									/>
+								</Form.Group>
+
+								<div
+									className='d-grid gap-2'
+									style={{ width: 200, margin: '0 auto' }}
+								>
+									<Button variant='primary' type='Submit'>
+										Sign In
+									</Button>
+								</div>
+							</Form>
+							<div style={{ marginTop: 30 }}>
+								<GoogleButton
+									className='g-btn'
+									style={{margin: '0 auto'}}
+									type='dark'
+									onClick={handleGoogleSignIn}
+								/>
 							</div>
 						</div>
-						<div
-							className='wrap-input100 validate-input'
-							data-validate='Username is required'
-						>
-							<input
-								className='input100'
-								type='email'
-								name='email'
-								onChange={e => setEmail(e.target.value)}
-							/>
-							<span className='focus-input100' />
+						<div className='p-4 box mt-3 text-center'>
+							Don't have an account? <Link to='/signUp'>Sign Up</Link>
 						</div>
-						<div className='p-t-13 p-b-9'>
-							<span className='txt1'>Password</span>
-						</div>
-						<div
-							className='wrap-input100 validate-input'
-							data-validate='Password is required'
-						>
-							<input
-								className='input100'
-								type='password'
-								name='pass'
-								onChange={e => setPassword(e.target.value)}
-							/>
-							<span className='focus-input100' />
-						</div>
-						<div className='container-login100-form-btn m-t-17'>
-							<button className='login100-form-btn'>Sign In</button>
-						</div>
-						<div className='w-full text-center p-t-55'>
-							<span className='txt2'>Not a member?</span>
-							<Link to='/signUp' className='txt2 bo1'>
-								Sign up now
-							</Link>
-						</div>
-					</form>
-				</div>
-			</div>
-		</div>
+					</Col>
+				</Row>
+			</Container>
+		</>
 	)
 }
 

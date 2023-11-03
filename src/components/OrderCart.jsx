@@ -8,8 +8,6 @@ const OrderCart = ({ food }) => {
 	const handleDelete = e => {
 		if (window.confirm('Вы правда хотите удалить товар?')) {
 			dispatch(removeItem(food.id))
-			// Запрос
-			// axios.delete(`${BasketAPI}/${food.id}`)
 		}
 	}
 

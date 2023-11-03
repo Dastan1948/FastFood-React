@@ -1,48 +1,45 @@
 import React, { useState } from 'react'
-import { BasketAPI } from '../consts/API'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { addItem } from '../store/slices/cartSlice'
-import { useDispatch } from 'react-redux'
 import ModalAdd from './ModalAdd'
-import axios from 'axios'
 
 const MenuCart = ({ food }) => {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const dispatch = useDispatch()
 
-	const addBasket = () => {
+	const addBasket = async () => {
+		try {
+			let obj = {
+				id: food.id,
+				img: food.img,
+				name: food.name,
+				text: food.text,
+				price: food.price,
+				star: food.star,
+				count: 1,
+			}
 
-		let obj = {
-			id: food.id,
-			img: food.img,
-			name: food.name,
-			text: food.text,
-			price: food.price,
-			star: food.star,
-			count: 1
+			dispatch(addItem(obj))
+
+			setIsOpen(true)
+		} catch (error) {
+			// Обработка ошибок
+			console.error('Произошла ошибка:', error)
 		}
-
-		dispatch(addItem(obj))
-
-		// зАПРОС
-		// axios.post(BasketAPI, obj)
-
-		setIsOpen(true)
-
 	}
 
-	if(isOpen) {
+	if (isOpen) {
 		setTimeout(() => {
 			setIsOpen(false)
-			console.log('Modal closed after 500 ms');
+			console.log('Modal closed after 500 ms')
 		}, 500)
 	}
 
-
 	return (
 		<div className='menu_card'>
-		{isOpen && <ModalAdd title='Товар успешно добавлен' />}
+			{isOpen && <ModalAdd title='Товар успешно добавлен' />}
 			<div className='menu_image'>
 				<img src={food.img} />
 			</div>

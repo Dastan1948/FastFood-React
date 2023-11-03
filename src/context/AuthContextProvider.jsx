@@ -24,6 +24,7 @@ const AuthContextProvider = ({ children }) => {
 	}
 
 	const logOut = () => {
+		localStorage.setItem('user', JSON.stringify(false))
 		return signOut(auth)
 	}
 
@@ -36,13 +37,19 @@ const AuthContextProvider = ({ children }) => {
 		setSuccess(bool)
 	}
 
+	const saveLocalStorage = () => {
+		localStorage.setItem('user', JSON.stringify(true))
+	}
+
 	const value = {
 		signUp,
 		signIn,
 		logOut,
 		googleSignIn,
 		successAuth,
-		success
+		success,
+		setSuccess,
+		saveLocalStorage
 	}
 
 	useEffect(() => {

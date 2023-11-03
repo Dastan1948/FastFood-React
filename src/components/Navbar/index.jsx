@@ -1,32 +1,51 @@
-import React, { useContext, useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/img/logo.png'
-import { searchContext } from '../../context/SearchContextProvider'
-import SearchBar from '../SearchBar'
 import { useAuth } from '../../context/AuthContextProvider'
+import { setItems } from '../../store/slices/cartSlice'
+import SearchBar from '../SearchBar'
 
 const Navbar = () => {
+	const [menu, setMenu] = useState(false)
+
+	const dispatch = useDispatch()
+
+	const location = useLocation()
+
 	const [isOpen, setIsOpen] = useState(false)
 
-	const { setSearchValue } = useContext(searchContext)
-
-	const {successAuth, success, logOut} = useAuth()
+	const { successAuth, success, setSuccess, logOut } = useAuth()
 
 	const handleOpenSearch = e => {
 		setIsOpen(!isOpen)
-		setSearchValue('')
+		dispatch(setItems(''))
 	}
 
 	const handleSignOut = async () => {
 		try {
-      await logOut()
+			await logOut()
 			successAuth(false)
-    } catch (error) {
-      alert(error.message);
-    }
+		} catch (error) {
+			alert(error.message)
+		}
 	}
 
+	useEffect(() => {
+		if (location.pathname === '/') {
+			setMenu(true)
+		}
+
+		return () => {
+			setMenu(false)
+		}
+	})
+
+	useEffect(() => {
+		if (localStorage.getItem('user')) {
+			setSuccess(JSON.parse(localStorage.getItem('user')))
+		}
+	}, [])
 
 	const { items } = useSelector(state => state.cart)
 	const totalCount = items.reduce((sum, item) => sum + item.count, 0)
@@ -43,17 +62,21 @@ const Navbar = () => {
 					<li>
 						<Link to='/'>Home</Link>
 					</li>
-					<li>
-						<a href='/#About'>About</a>
-					</li>
+					{menu && (
+						<>
+							<li>
+								<a href='/#About'>About</a>
+							</li>
+							<li>
+								<a href='/#Gallery'>Gallery</a>
+							</li>
+							<li>
+								<a href='/#Review'>Review</a>
+							</li>
+						</>
+					)}
 					<li>
 						<Link to='/menu'>Menu</Link>
-					</li>
-					<li>
-						<a href='/#Gallery'>Gallery</a>
-					</li>
-					<li>
-						<a href='/#Review'>Review</a>
 					</li>
 					<li>
 						<Link to='/order'>Order</Link>

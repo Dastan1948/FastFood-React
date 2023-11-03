@@ -1,18 +1,15 @@
 import axios from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { MenuAPI } from '../../consts/API'
-import { searchContext } from '../../context/SearchContextProvider'
 import Categories from '../Categories'
 import MenuCart from '../MenuCart'
-import { useDispatch } from 'react-redux'
-import {addItem} from '../../store/slices/cartSlice.js'
 
 const Menu = () => {
-
 	const [data, setData] = useState([])
 	const [select, setSelect] = useState(1)
 
-	const { searchValue } = useContext(searchContext)
+	const { searchValue } = useSelector(state => state.cart)
 
 	useEffect(() => {
 		axios
