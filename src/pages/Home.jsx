@@ -5,17 +5,17 @@ import Review from '../components/Review'
 import Team from '../components/Team'
 
 const Home = () => {
-  useEffect(() => {
+	useEffect(() => {
 		window.scrollTo(0, 0)
 	}, [])
-  return (
-    <>
-      <About />
-      <Gallery />
-      <Review />
-      <Team />
-    </>
-  )
+	return (
+		<>
+			<About />
+			<Gallery />
+			<Review />
+			<Team />
+		</>
+	)
 }
 
 export default Home

@@ -1,9 +1,26 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
+import axios from 'axios'
+
+// Асинхронная функция
+export const fetchMenus = createAsyncThunk(
+	'cart/fetchMenusStatus',
+	async props => {
+		// Деструктуризация объекта
+		const { MenuAPI, select } = props
+		// Деструктуризация и запрос
+		const { data } = await axios.get(`${MenuAPI}${select}`)
+
+		return data
+	}
+)
 
 const initialState = {
 	searchValue: '',
+	// Все товары Menu
+	menu: [],
 	items: [],
 	totalPrice: 0,
+	status: 'loading',
 }
 
 export const cartSlice = createSlice({
@@ -30,6 +47,7 @@ export const cartSlice = createSlice({
 		},
 
 		setItems(state, action) {
+			// Добавление текста в поиск
 			state.searchValue = action.payload
 		},
 
@@ -57,16 +75,34 @@ export const cartSlice = createSlice({
 			// Очистка корзины
 			state.items = []
 		},
+	},
 
+	extraReducers: {
+		// Ожидание
+		[fetchMenus.pending]: state => {
+			// Обновление статуса на загрузку
+			state.status = 'loading'
+			// Очистка меню на случай если в нем есть данные
+			state.menu = []
+		},
+		// Получение
+		[fetchMenus.fulfilled]: (state, action) => {
+			// Добавление полученных данных в Меню
+			state.menu = action.payload
+			// Обновление статуса на успешно
+			state.status = 'success'
+		},
+		// Ошибка
+		[fetchMenus.rejected]: (state, action) => {
+			// Обновление статуса на ошибку
+			state.status = 'error'
+			// Очистка меню на случай если в нем есть данные
+			state.menu = []
+		},
 	},
 })
 
-export const {
-	addItem,
-	removeItem,
-	minusCount,
-	clearItems,
-	setItems
-} = cartSlice.actions
+export const { addItem, removeItem, minusCount, clearItems, setItems } =
+	cartSlice.actions
 
 export default cartSlice.reducer

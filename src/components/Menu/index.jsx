@@ -1,27 +1,30 @@
-import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { MenuAPI } from '../../consts/API'
+import { fetchMenus } from '../../store/slices/cartSlice'
 import Categories from '../Categories'
 import MenuCart from '../MenuCart'
 
 const Menu = () => {
-	const [data, setData] = useState([])
+	const dispatch = useDispatch()
+	const { searchValue, menu, status } = useSelector(state => state.cart)
+
 	const [select, setSelect] = useState(1)
 
-	const { searchValue } = useSelector(state => state.cart)
-
 	useEffect(() => {
-		axios
-			.get(`${MenuAPI}${select}`)
-			.then(res => {
-				setData(res.data)
-			})
-			.catch(err => {
-				console.log(err)
-			})
+		dispatch(fetchMenus({ MenuAPI, select }))
+
 		window.scrollTo(0, 0)
 	}, [select])
+
+	const menus = menu
+		.filter(value => {
+			if (value.name.toLowerCase().includes(searchValue.toLowerCase())) {
+				return true
+			}
+			return false
+		})
+		.map(el => <MenuCart key={el.id} food={el} />)
 
 	return (
 		<div className='menu' id='Menu'>
@@ -30,16 +33,25 @@ const Menu = () => {
 			</h1>
 			<Categories select={select} setSelect={setSelect} />
 			<div className='menu_box'>
-				{data
-					.filter(value => {
-						if (value.name.toLowerCase().includes(searchValue.toLowerCase())) {
-							return true
-						}
-						return false
-					})
-					.map(el => (
-						<MenuCart key={el.id} food={el} />
-					))}
+				{status === 'error' ? (
+					<div className='menu_box-error'>
+						<h2>
+							Произошла ошибка <span>😕</span>
+						</h2>
+						<p>
+							К сожалению, не удалось получить Меню. Попробуйте повторить
+							попытку позже
+						</p>
+					</div>
+				) : (
+					<>
+						{status === 'loading' ? (
+							<div className='menu_box-loading'>Загрузка</div>
+						) : (
+							menus
+						)}
+					</>
+				)}
 			</div>
 		</div>
 	)
