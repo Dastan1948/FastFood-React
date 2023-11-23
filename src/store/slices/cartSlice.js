@@ -21,6 +21,7 @@ const initialState = {
 	items: [],
 	totalPrice: 0,
 	status: 'loading',
+	userInfo: null
 }
 
 export const cartSlice = createSlice({
@@ -75,6 +76,16 @@ export const cartSlice = createSlice({
 			// Очистка корзины
 			state.items = []
 		},
+
+		// Добавление пользователя
+		addUser(state, action) {
+			state.userInfo = action.payload
+		},
+
+		// Удалить пользователя
+		removeUser(state) {
+			state.userInfo = null
+		}
 	},
 
 	extraReducers: {
@@ -102,7 +113,7 @@ export const cartSlice = createSlice({
 	},
 })
 
-export const { addItem, removeItem, minusCount, clearItems, setItems } =
+export const { addItem, removeItem, minusCount, clearItems, setItems, addUser, removeUser } =
 	cartSlice.actions
 
 export default cartSlice.reducer

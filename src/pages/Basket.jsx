@@ -7,10 +7,8 @@ import { useAuth } from '../context/AuthContextProvider'
 import { clearItems } from '../store/slices/cartSlice'
 
 const Basket = () => {
-	const { items, totalPrice } = useSelector(state => state.cart)
+	const { items, totalPrice, userInfo } = useSelector(state => state.cart)
 	const dispatch = useDispatch()
-
-	const { success } = useAuth()
 
 	const {searchValue} = useSelector(state => state.cart)
 
@@ -21,7 +19,7 @@ const Basket = () => {
 	}
 
 	const handleDelivery = () => {
-		if (!success) {
+		if (!userInfo) {
 			return alert('Нужно авторизоваться')
 		}
 		return alert('Доставка еще не готова')

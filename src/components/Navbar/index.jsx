@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../assets/img/logo.png'
-import { useAuth } from '../../context/AuthContextProvider'
 import { setItems } from '../../store/slices/cartSlice'
 import SearchBar from '../SearchBar'
 
@@ -15,19 +14,13 @@ const Navbar = () => {
 
 	const [isOpen, setIsOpen] = useState(false)
 
-	const { successAuth, success, setSuccess, logOut } = useAuth()
-
 	const handleOpenSearch = e => {
-		setIsOpen(!isOpen)
-		dispatch(setItems(''))
-	}
-
-	const handleSignOut = async () => {
-		try {
-			await logOut()
-			successAuth(false)
-		} catch (error) {
-			alert(error.message)
+		if(location.pathname === '/menu') {
+			setIsOpen(!isOpen)
+			dispatch(setItems(''))
+		}else {
+			alert('Поиск открывается только в странице Menu и в Корзине')
+			setIsOpen(false)
 		}
 	}
 
@@ -41,13 +34,7 @@ const Navbar = () => {
 		}
 	})
 
-	useEffect(() => {
-		if (localStorage.getItem('user')) {
-			setSuccess(JSON.parse(localStorage.getItem('user')))
-		}
-	}, [])
-
-	const { items } = useSelector(state => state.cart)
+	const { items, userInfo } = useSelector(state => state.cart)
 	const totalCount = items.reduce((sum, item) => sum + item.count, 0)
 
 	return (
@@ -98,9 +85,29 @@ const Navbar = () => {
 						</div>
 					</Link>
 					<Link to='/signIn'>
-						<i className={`fa-solid fa-user ${success ? 'success' : ''}`}></i>
+						{userInfo ? (
+							<img
+								style={{
+									width: 32,
+									height: 32,
+									borderRadius: 9999,
+								}}
+								src={userInfo.image}
+								alt='userLogo'
+							/>
+						) : (
+							<i className={`fa-solid fa-user`}></i>
+						)}
 					</Link>
-					{success && <button onClick={() => handleSignOut()}>Sign Out</button>}
+					{userInfo?.name && (
+						<div
+							style={{
+								color: 'black',
+							}}
+						>
+							{userInfo?.name}
+						</div>
+					)}
 				</div>
 			</nav>
 		</section>
