@@ -15,13 +15,13 @@ const Navbar = () => {
 	const [isOpen, setIsOpen] = useState(false)
 
 	const handleOpenSearch = e => {
-		if(location.pathname === '/menu') {
+		if(location.pathname === '/menu' || location.pathname === '/basket') {
 			setIsOpen(!isOpen)
 			dispatch(setItems(''))
-		}else {
-			alert('Поиск открывается только в странице Menu и в Корзине')
-			setIsOpen(false)
+			return
 		}
+		alert('Поиск открывается только в странице Menu и в Корзине')
+		setIsOpen(false)
 	}
 
 	useEffect(() => {

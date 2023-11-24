@@ -1,7 +1,4 @@
-import React, { useState } from 'react'
-
-// import 'bootstrap/dist/css/bootstrap.min.css'
-
+import React, { useEffect, useState } from 'react'
 import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
 import GoogleButton from 'react-google-button'
 import { Link, useNavigate } from 'react-router-dom'
@@ -51,6 +48,10 @@ const SignIn = () => {
 			alert(error.message)
 		}
 	}
+
+	useEffect(() => {
+		window.scrollTo(0, 0)
+	}, [])
 
 	return (
 		<>

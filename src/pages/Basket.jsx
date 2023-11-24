@@ -1,16 +1,21 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 import BasketEmpty from '../components/BasketEmpty'
+import Delivery from '../components/Delivery'
 import OrderCart from '../components/OrderCart'
-import { useAuth } from '../context/AuthContextProvider'
 import { clearItems } from '../store/slices/cartSlice'
 
 const Basket = () => {
-	const { items, totalPrice, userInfo } = useSelector(state => state.cart)
-	const dispatch = useDispatch()
+	const [isOpen, setIsOpen] = useState(false)
 
-	const {searchValue} = useSelector(state => state.cart)
+	const { items, totalPrice, userInfo } = useSelector(state => state.cart)
+
+	const dispatch = useDispatch()
+	const navigate = useNavigate()
+
+	const { searchValue } = useSelector(state => state.cart)
 
 	const handleClearItems = () => {
 		if (window.confirm('Вы правда хотите очистить корзину?')) {
@@ -18,11 +23,12 @@ const Basket = () => {
 		}
 	}
 
-	const handleDelivery = () => {
+	const handleToggleDelivery = () => {
 		if (!userInfo) {
-			return alert('Нужно авторизоваться')
+			alert('Нужно авторизоваться')
+			return navigate('/signIn')
 		}
-		return alert('Доставка еще не готова')
+		return setIsOpen(!isOpen)
 	}
 
 	if (items.length === 0) {
@@ -31,6 +37,7 @@ const Basket = () => {
 
 	return (
 		<div className='menu'>
+			{isOpen && <Delivery onClickOpen={handleToggleDelivery} />}
 			<h1>
 				<span>Корзина</span>
 			</h1>
@@ -53,7 +60,7 @@ const Basket = () => {
 				<div className='order_delivery-total'>
 					Итого: <span>{totalPrice} сомов</span>
 				</div>
-				<button onClick={handleDelivery}>Order</button>
+				<button onClick={handleToggleDelivery}>Заказать</button>
 			</div>
 		</div>
 	)
