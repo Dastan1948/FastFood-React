@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
 import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../context/AuthContextProvider'
 
 import '../styles/SignUp.scss'
@@ -11,16 +11,16 @@ const SignUp = () => {
 	const [password, setPassword] = useState('')
 	const [error, setError] = useState('')
 
-	const navigate = useNavigate()
-
 	const { signUp } = useAuth()
 
 	const handleSubmit = async e => {
 		e.preventDefault()
+		if (!email || !password) {
+			return alert('Нужно заполнить все поля')
+		}
 		setError('')
 		try {
 			await signUp(email, password)
-			navigate('/signIn')
 		} catch (error) {
 			setError(error.message)
 		}
@@ -28,14 +28,20 @@ const SignUp = () => {
 
 	return (
 		<>
-			<Container style={{ maxWidth: 555, padding: '73.5px 0', margin: '0 auto' }}>
+			<Container
+				style={{ maxWidth: 555, padding: '73.5px 0', margin: '0 auto' }}
+			>
 				<Row>
 					<Col>
 						<div className='p-4 box'>
 							<h2 className='mb-3 text-center' style={{ fontSize: 36 }}>
 								Sign Up
 							</h2>
-							{error && <Alert variant='danger' style={{marginBottom: 10}}>{error}</Alert>}
+							{error && (
+								<Alert variant='danger' style={{ marginBottom: 10 }}>
+									{error}
+								</Alert>
+							)}
 							<Form onSubmit={handleSubmit}>
 								<Form.Group className='mb-3' controlId='formBasicEmail'>
 									<Form.Control

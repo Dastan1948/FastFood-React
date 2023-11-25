@@ -247,6 +247,9 @@ section .main_btn:hover i {
     &-loading {
       position: absolute;
       left: calc(45vw - 10px);
+			display: flex;
+			justify-content: center;
+			align-items: center;
     }
 	}
 

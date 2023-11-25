@@ -25,8 +25,8 @@ const Basket = () => {
 
 	const handleToggleDelivery = () => {
 		if (!userInfo) {
-			alert('Нужно авторизоваться')
-			return navigate('/signIn')
+			window.confirm('Нужно авторизоваться') ? navigate('/signIn') : null
+			return
 		}
 		return setIsOpen(!isOpen)
 	}

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Alert, Button, Col, Container, Form, Row } from 'react-bootstrap'
 import GoogleButton from 'react-google-button'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContextProvider'
 
 import { useSelector } from 'react-redux'
@@ -15,16 +15,18 @@ const SignIn = () => {
 	const [password, setPassword] = useState('')
 	const [error, setError] = useState('')
 
-	const { googleSignIn, signIn, logOut } = useAuth()
+	const { googleSignIn, signIn } = useAuth()
 
 	const navigate = useNavigate()
 
 	const handleSubmit = async e => {
 		e.preventDefault()
+		if (!name || !email || !password) {
+			return alert('Нужно заполнить все поля')
+		}
 		setError('')
 		try {
 			await signIn(email, password, name)
-			navigate('/')
 		} catch (error) {
 			setError(error.message)
 		}
@@ -34,18 +36,8 @@ const SignIn = () => {
 		e.preventDefault()
 		try {
 			await googleSignIn()
-			navigate('/')
 		} catch (error) {
 			setError(error.message)
-		}
-	}
-
-	const handleSignOut = async () => {
-		try {
-			await logOut()
-			navigate('/')
-		} catch (error) {
-			alert(error.message)
 		}
 	}
 
@@ -53,33 +45,12 @@ const SignIn = () => {
 		window.scrollTo(0, 0)
 	}, [])
 
+	if (userInfo) {
+		return <Navigate to='/profile' />
+	}
+
 	return (
 		<>
-			{userInfo && (
-				<div
-					style={{
-						width: 120,
-						margin: '40px auto 0',
-					}}
-				>
-					<Button
-						style={{
-							backgroundColor: '#007bff',
-							width: '100%',
-							padding: '0.5rem 1rem',
-							fontSize: '1rem',
-							color: '#fff',
-							border: 'none',
-							borderRadius: '0.25rem',
-							cursor: 'pointer',
-						}}
-						onClick={() => handleSignOut()}
-					>
-						Sign Out
-					</Button>
-				</div>
-			)}
-
 			<Container
 				style={{ maxWidth: 555, padding: '33.5px 0', margin: '0 auto' }}
 			>

@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { Fragment, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { MenuAPI } from '../../consts/API'
 import { fetchMenus } from '../../store/slices/cartSlice'
 import Categories from '../Categories'
 import MenuCart from '../MenuCart'
+
+import loadingImg from './spinner.svg'
 
 const Menu = () => {
 	const dispatch = useDispatch()
@@ -46,7 +48,12 @@ const Menu = () => {
 				) : (
 					<>
 						{status === 'loading' ? (
-							<div className='menu_box-loading'>Загрузка</div>
+							<>
+								<div className='menu_box-loading'>
+									<img src={loadingImg} alt='loadingImg' />
+									Загрузка...
+								</div>
+							</>
 						) : (
 							menus
 						)}
